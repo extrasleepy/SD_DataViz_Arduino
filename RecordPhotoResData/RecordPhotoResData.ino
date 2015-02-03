@@ -18,7 +18,6 @@ int pushButton = 3;
 File myFile;
 const int chipSelect = 10;
 
-// the setup routine runs once when you press reset:
 void setup() {
   Serial.begin(9600);
   pinMode(pushButton, INPUT);
@@ -51,7 +50,6 @@ void setup() {
   }
 }
 
-// the loop routine runs over and over again forever:
 void loop() {
   int buttonState = digitalRead(pushButton);
   if (buttonState==HIGH){
