@@ -3,7 +3,7 @@
  Reads an analog input on pin A0, prints the result to the serial monitor.
  
  Attach the one pin of a photoresistor to pin A0, and the other pin to +5V.  
- Hook a 4.7K resistor to pin A0 as welland hook the other leg to GND.
+ Hook a 4.7K resistor to pin A2 as welland hook the other leg to GND.
  
  Attach pushbutton to PIN 3.  Make sure pin has 10K pull-down resistor hooked to GND.
  
@@ -54,7 +54,7 @@ void loop() {
   int buttonState = digitalRead(pushButton);
   if (buttonState==HIGH){
     myFile = SD.open("light.csv", FILE_WRITE);
-    int sensorValue = analogRead(A0);
+    int sensorValue = analogRead(A2);
     Serial.println(sensorValue);   //print light value to Serial monitor
     myFile.print(millis()/1000);  //record time in milliseconds
     myFile.print(",");
