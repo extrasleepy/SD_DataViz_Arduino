@@ -29,12 +29,11 @@ void setup()
 
   // open the file. note that only one file can be open at a time,
   // so you have to close this one before opening another.
-  myFile = SD.open("sound.txt", FILE_WRITE);
+  myFile = SD.open("soundlev.csv", FILE_WRITE);
 
   // if the file opened okay, write to it:
   if (myFile) {
     Serial.print("Writing to file...");
-    myFile.println("testing 1, 2, 3.");
     // close the file:
     myFile.close();
     Serial.println("success!");
@@ -73,9 +72,14 @@ void loop()
   peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
   double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
   delay(20);
-  myFile = SD.open("soundlev.txt", FILE_WRITE);
+  myFile = SD.open("soundlev.csv", FILE_WRITE);
   if (myFile) {
+    myFile.print(millis());
+    myFile.print(",");
     myFile.println(volts);
+    
+    Serial.print(millis()); 
+    Serial.print(","); 
     Serial.println(volts);
   } 
   else{
@@ -83,8 +87,6 @@ void loop()
     Serial.println("error opening data file");
   }
   myFile.close();
-  Serial.println(volts);
-
 }
 
 
