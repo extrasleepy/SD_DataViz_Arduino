@@ -52,10 +52,6 @@ void setup()
 
   // if the file opened okay, write to it:
   if (myFile) {
-    Serial.print("Writing to file...");
-    myFile.println("testing 1, 2, 3.");
-    // close the file:
-    myFile.close();
     Serial.println("success!");
   } 
   else {
@@ -74,7 +70,6 @@ void loop()
     myFile.print(millis()/1000);
     myFile.print(",");
     myFile.println(number);
-    myFile.print(",");
     
     Serial.print(millis()/1000); 
     Serial.print(","); 
