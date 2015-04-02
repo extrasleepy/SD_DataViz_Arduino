@@ -53,7 +53,7 @@ void setup(void) {
 
   // open the file. note that only one file can be open at a time,
   // so you have to close this one before opening another.
-  myFile = SD.open("datafun.txt", FILE_WRITE);
+  myFile = SD.open("datafun.csv", FILE_WRITE);
 
   // if the file opened okay, write to it:
   if (myFile) {
@@ -69,7 +69,7 @@ void setup(void) {
 
 void loop() {
   // Read the 'raw' data in 14-bit counts
-  myFile = SD.open("datafun.txt", FILE_WRITE);
+  myFile = SD.open("datafun.csv", FILE_WRITE);
   mma.read();  //read accelerometer
 
   if ((myFile) && (millis()<recordTime)) {  //if recording time is not exceeded
