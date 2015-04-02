@@ -63,7 +63,7 @@ void setup(void) {
   } 
   else {
     // if the file didn't open, print an error:
-    Serial.println("error opening datafun.txt");
+    Serial.println("error opening data file");
   }
 }
 
