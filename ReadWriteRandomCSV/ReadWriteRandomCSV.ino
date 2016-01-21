@@ -18,7 +18,7 @@ File myFile;
 //     Sparkfun SD shield: pin 8
 
 const int chipSelect = 10;
-float recordTime = 20000;
+float recordTime = 20000;            //this is how long the data recording will last
 int number=0;
 
 
@@ -56,7 +56,7 @@ void setup()
   } 
   else {
     // if the file didn't open, print an error:
-    Serial.println("error opening datafun.txt");
+    Serial.println("error opening datafun.csv");
   }
 }
 
@@ -64,14 +64,14 @@ void setup()
 void loop()
 {
   myFile = SD.open("datafun.csv", FILE_WRITE);
-  number = random(0,30000);
+  number = random(0,30000);           //pick a random number
   // if the file opened okay, write to it:
   if ((myFile) && (millis()<recordTime)) {
-    myFile.print(millis()/1000);
-    myFile.print(",");
-    myFile.println(number);
+    myFile.print(millis()/1000);       //record how long the program is running divided by 1000 to make seconds
+    myFile.print(",");                 //separate with a comma
+    myFile.println(number);            //record the random number
     
-    Serial.print(millis()/1000); 
+    Serial.print(millis()/1000);       //print the same data in the serial window.
     Serial.print(","); 
     Serial.println(number);
   } 
@@ -86,8 +86,8 @@ void loop()
     // if the file didn't open, print an error:
     Serial.println("error opening data file");
   }
-  myFile.close();
-  delay(1000);
+  myFile.close();         //close the data file
+  delay(1000);            //one reading per second
 }
 
 
