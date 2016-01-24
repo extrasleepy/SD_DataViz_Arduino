@@ -40,7 +40,7 @@ void setup()
   } 
   else {
     // if the file didn't open, print an error:
-    Serial.println("error opening soundlev.txt");
+    Serial.println("error opening soundlev.csv");
   }
 }
 
